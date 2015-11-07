@@ -19,7 +19,7 @@
     <![endif]-->
   </head>
   <body>
-	<div class="navbar-static-top navbar-inverse">
+	<div class="navbar-static-top navbar-inverse" id="home">
 		<div class="container">
 			<div class="navbar-brand">
 				<a href="#">My Site</a>
@@ -30,9 +30,9 @@
 			<div class="collapse navbar-collapse navHeaderCollapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -45,30 +45,30 @@
 		</div>
 	</div>
 	
-	<div class="bgalt1">
-	<div class="container">
+	<div class="bgalt1 padding">
+	<div class="container" id="about">
 		<div class="row">
 			<div class="col-md-4">
 				<h2 class="text-center">Test column one</h2>
 				<p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-				<a href="#" class="btn btn-default">Click for more</a>
+				<a href="#one" class="btn btn-default">Click for more</a>
 			</div>
 			<div class="col-md-4">
 				<h2 class="text-center">Test column one</h2>
 				<p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-				<a href="#" class="btn btn-default">Click for more</a>			
+				<a href="#two" class="btn btn-default">Click for more</a>			
 			</div>
 			<div class="col-md-4">
 				<h2 class="text-center">Test column one</h2>
 				<p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-				<a href="#" class="btn btn-default">Click for more</a>			
+				<a href="#three" class="btn btn-default">Click for more</a>			
 			</div>
 		</div>
 	</div>
 	</div>
 	
-	<div class="container">
-		<div class="row padding">
+	<div class="container" id="portfolio">
+		<div class="row padding" id="one">
 			<div class="col-md-6">
 				<img src="1.png" class="center-block img-circle img-responsive" alt="Holding image"/>
 			</div>
@@ -79,7 +79,7 @@
 		</div>
 		<hr/>
 		
-		<div class="row padding">
+		<div class="row padding" id="two">
 			<div class="col-md-6">
 				<h2 class="text-center">Test story two</h2>
 				<p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
@@ -90,7 +90,7 @@
 		</div>
 		<hr/>
 		
-		<div class="row padding">
+		<div class="row padding" id="three">
 			<div class="col-md-6">
 				<img src="3.png" class="center-block img-circle img-responsive"  alt="Holding image"/>
 			</div>
@@ -102,7 +102,7 @@
 	</div>
 	<hr/>
 	
-	<div class="container">
+	<div class="container padding" id="contact">
 		<form role="form">
 			<div class="form-group">
 				<label for="email">Email:</label>
@@ -124,9 +124,31 @@
 		</form>
 	</div>
 	
+	<div class="bgalt2">
+		<div class="container padding">
+			<footer>&copy; Ben Skerritt<br /><a href="#home">Back to top</a></footer>
+		</div>
+	</div>
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+	<script>
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		  var target = $(this.hash);
+		  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		  if (target.length) {
+			$('html,body').animate({
+			  scrollTop: target.offset().top
+			}, 1000);
+			return false;
+		  }
+		}
+	  });
+	});
+	</script>
   </body>
 </html>
