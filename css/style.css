@@ -4,3 +4,13 @@ background-attachment:fixed;
 min-height:500px;
 margin-bottom:0px;
 }
+
+.bgalt1{
+background-color:#eee;
+min-height:400px;
+}
+
+.padding{
+padding-top:20px;
+padding-bottom:20px;
+}
